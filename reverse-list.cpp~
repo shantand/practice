@@ -1,0 +1,50 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdio>
+
+using namespace std;
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+void reverse(struct node *head)
+{
+	if(!head->next) return;
+	reverse(head->next);
+	(head->next)->next = head;
+}
+
+int main()
+{
+	int i,val;
+	struct node *head,*first,*temp,*last;
+	for(i=0;i<10;i++)
+	{
+		head = (struct node*) malloc(sizeof(struct node));
+		scanf("%d",&val);
+		head->data = val;
+		head->next = NULL;
+		
+		if(i==0) {first=temp=head;}
+		else
+		{
+			temp->next = head;
+			temp = temp->next;
+		}
+	}
+	
+	last=head;
+	reverse(first);
+	
+	head = last;
+	first -> next = NULL;
+	while(head)
+	{
+		printf("%d\n",head->data);
+		head = head->next;
+	}
+	return 0;
+}

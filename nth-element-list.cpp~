@@ -1,0 +1,41 @@
+#include<iostream>
+#include<stdlib.h>
+#include<cstdio>
+
+using namespace std;
+
+struct node
+{
+	int data;
+	struct node *next;
+};
+
+int main()
+{
+	int i,val,flag=0,n,index;
+	struct node *head,*first,*temp;
+	scanf("%d%d",&n,&index);
+	while(n--)
+	{
+		scanf("%d",&val);
+		head = (struct node*) malloc(sizeof(struct node));
+		head->data = val;
+		head->next = NULL;
+		
+		if(flag==0) {first=temp=head; flag=1;}
+		else
+		{
+			temp->next = head;
+			temp = temp->next;
+		}
+	}
+	
+	head=first;
+	while(index--)
+	{
+		//printf("%d\n",head->data);
+		head = head->next;
+	}
+	printf("\n%d \n",head->data);
+	return 0;
+}
