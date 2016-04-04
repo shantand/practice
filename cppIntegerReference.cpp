@@ -3,12 +3,15 @@ using namespace std;
  
 int &fun()
 {
-    int x = 10;
+    int x;
     return x;
 }
 int main()
 {
     fun() = 30;
-    cout << fun();
+    cout << fun() << endl;
+    fun() = 25;
+    cout << fun() << endl;
+	
     return 0;
 }
