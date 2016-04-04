@@ -1,3 +1,10 @@
+/*
+	returns the lexicographic position in all permutations 
+	example:
+	abc = 1
+	acb = 2
+	bac = 3
+*/
 #include<iostream>
 #include<algorithm>
 
